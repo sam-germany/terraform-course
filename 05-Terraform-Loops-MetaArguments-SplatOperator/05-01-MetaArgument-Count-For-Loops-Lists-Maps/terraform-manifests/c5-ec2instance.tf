@@ -7,11 +7,13 @@ resource "aws_instance" "myec2vm" {
   user_data = file("${path.module}/app1-install.sh")
   key_name = var.instance_keypair
   vpc_security_group_ids = [ aws_security_group.vpc-ssh.id, aws_security_group.vpc-web.id   ]
-  count = 2
+  count = 2      # <-- it simply means make two objects of this "resource", means make two ec2 instances.
   tags = {
     "Name" = "Count-Demo-${count.index}"
   }
 }
+
+
 
 /*
 # Drawbacks of using count in this example

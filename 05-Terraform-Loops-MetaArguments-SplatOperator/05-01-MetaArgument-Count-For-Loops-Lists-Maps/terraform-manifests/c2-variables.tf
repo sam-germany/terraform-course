@@ -24,6 +24,7 @@ variable "instance_keypair" {
 variable "instance_type_list" {
   description = "EC2 Instance Type"
   type = list(string)
+# .           index-0 .    index-1      index-2     <-- here the index always starts with "0" as in java  
   default = ["t3.micro", "t3.small", "t3.large"]  
 }
 
